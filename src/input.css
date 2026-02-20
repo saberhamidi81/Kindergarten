@@ -1,0 +1,61 @@
+@import "tailwindcss";
+@custom-variant child-hover (& > *:hover);
+@custom-variant child (& > *);
+
+@theme {
+    --color-orangec2: #F29F05;
+    --color-greenc2: #3CA642;
+    --color-purplec3: #735BA5;
+    --color-redc4: #D93735;
+    --color-black-0: #333333;
+    --color-gray0: #828282;
+    --breakpoint-xs: 480px;
+}
+
+
+@font-face {
+  font-family: "vazir";
+  src: url("../assets/foonts/Vazir-Bold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+
+@font-face {
+  font-family: "vazir";
+  src: url("../assets/foonts/Vazir-Medium.woff2") format("woff2");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "vazir";
+  src: url("../assets/foonts/Vazir.woff2") format("woff2");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@layer base {
+  body {
+    font-family: "vazir", sans-serif;
+  }
+}
+
+.container {
+  max-width: 1238px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.work {
+  @apply flex flex-col items-center gap-4 w-full max-w-[456PX] lg:max-w-[293PX] h-[277PX] rounded-4xl;
+}
+
+.green-circle {
+  @apply w-2.5 h-2.5 bg-green-500 rounded-full;
+}

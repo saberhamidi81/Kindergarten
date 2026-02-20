@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="en" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="shortcut icon"
+      href="./assets/images/logo.png"
+      type="image/x-icon"
+    />
+    <link rel="stylesheet" href="./src/output.css" />
+    <title>Kindergarten</title>
+  </head>
+  <body>
+    <svg class="hidden">
+      <symbol
+        id="search"
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke-width="1.5"
+        stroke="currentColor"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z"
+        />
+      </symbol>
+      <symbol
+        id="bars"
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke-width="1.5"
+        stroke="currentColor"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
+        />
+      </symbol>
+      <symbol
+        id="xmark"
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke-width="1.5"
+        stroke="currentColor"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          d="M6 18 18 6M6 6l12 12"
+        />
+      </symbol>
+      <symbol
+        id="abc"
+        width="46"
+        height="44"
+        viewBox="0 0 46 44"
+        fill="currentColor"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M13.6826 27.5C12.9088 27.5 12.2672 26.8767 12.2672 26.125V24.75H8.49265V26.125C8.49265 26.8767 7.85098 27.5 7.07721 27.5C6.30343 27.5 5.66176 26.8767 5.66176 26.125V18.3333C5.66176 17.325 6.51103 16.5 7.54902 16.5H13.2108C14.2488 16.5 15.098 17.325 15.098 18.3333V26.125C15.098 26.8767 14.4564 27.5 13.6826 27.5ZM12.2672 19.25H8.49265V22H12.2672V19.25ZM25.4779 22C26.5159 22 27.3652 22.825 27.3652 23.8333V25.6667C27.3652 26.675 26.5159 27.5 25.4779 27.5H19.8162C18.7782 27.5 17.9289 26.675 17.9289 25.6667V18.3333C17.9289 17.325 18.7782 16.5 19.8162 16.5H25.4779C26.5159 16.5 27.3652 17.325 27.3652 18.3333V20.1667C27.3652 21.175 26.5159 22 25.4779 22ZM20.7598 19.25V20.625H24.5343V19.25H20.7598ZM24.5343 23.375H20.7598V24.75H24.5343V23.375ZM39.6324 18.7917C39.6324 19.5433 38.9907 20.1667 38.2169 20.1667C37.9239 20.1651 37.6384 20.0764 37.3989 19.9126C37.1593 19.7487 36.9772 19.5175 36.877 19.25H33.027V24.75H36.877C37.0657 24.2183 37.5941 23.8333 38.2169 23.8333C38.9907 23.8333 39.6324 24.4567 39.6324 25.2083V25.6667C39.6324 26.675 38.7831 27.5 37.7451 27.5H32.0833C31.0453 27.5 30.1961 26.675 30.1961 25.6667V18.3333C30.1961 17.325 31.0453 16.5 32.0833 16.5H37.7451C38.7831 16.5 39.6324 17.325 39.6324 18.3333V18.7917Z"
+        />
+      </symbol>
+      <symbol
+        id="ballon"
+        width="32"
+        height="32"
+        viewBox="0 0 32 32"
+        fill="currentColor"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M6.66675 12C6.66675 6.84534 10.8454 2.66666 16.0001 2.66666C21.1547 2.66666 25.3334 6.84534 25.3334 12C25.3334 14.7 24.4407 17.6476 22.8673 19.9408C21.4767 21.9673 19.4759 23.5827 17.0001 23.9305V24.3333C17.0001 24.8856 17.4478 25.3333 18.0001 25.3333H22.3334C23.9902 25.3333 25.3334 26.6765 25.3334 28.3333V29.6667C25.3334 30.2189 24.8857 30.6667 24.3334 30.6667C23.7811 30.6667 23.3334 30.2189 23.3334 29.6667V28.3333C23.3334 27.7811 22.8857 27.3333 22.3334 27.3333H18.0001C16.3433 27.3333 15.0001 25.9901 15.0001 24.3333V23.9305C12.5242 23.5827 10.5234 21.9673 9.13285 19.9408C7.55944 17.6476 6.66675 14.7 6.66675 12ZM17.2262 6.8085C16.6887 6.68191 16.1502 7.01508 16.0237 7.55266C15.8971 8.09024 16.2302 8.62866 16.7678 8.75524C17.9889 9.04278 18.9529 10.0049 19.243 11.225C19.3707 11.7622 19.9099 12.0942 20.4471 11.9664C20.9845 11.8387 21.3165 11.2995 21.1887 10.7622C20.7235 8.80611 19.1841 7.26951 17.2262 6.8085Z"
+        />
+      </symbol>
+      <symbol
+        id="chess"
+        width="32"
+        height="32"
+        viewBox="0 0 32 32"
+        fill="currentColor"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M16.8 3.20001C16.3582 3.20001 16 3.55819 16 4.00001V8.16001C16 10.3626 17.483 12.2179 19.5052 12.7832C19.1531 17.1682 17.8849 20.4395 16.8464 22.4581C17.1408 22.8029 17.4179 23.0615 17.6335 23.2418C18.4633 23.9359 19.2 25.0679 19.2 26.4781C19.2 27.3471 18.9174 28.1499 18.4391 28.8H27.1999C28.5254 28.8 29.5999 27.7255 29.5999 26.4V25.9082C29.5999 25.3522 29.4102 24.8384 29.1172 24.4176C28.2519 23.1751 25.8064 19.1547 25.2947 12.7832C27.3169 12.2179 28.7999 10.3626 28.7999 8.16001V4.00001C28.7999 3.55819 28.4417 3.20001 28 3.20001H26.7999C26.1372 3.20001 25.5999 3.73728 25.5999 4.40001V5.60001C25.5999 6.04105 25.243 6.39891 24.8019 6.40001C24.3609 6.40112 24.0022 6.04505 24 5.60401V5.60001L23.9939 4.39401C23.9907 3.73361 23.4543 3.20001 22.7939 3.20001H22.006C21.3456 3.20001 20.8092 3.73361 20.806 4.39401L20.7999 5.60401C20.7977 6.04505 20.439 6.40112 19.9979 6.40001C19.5569 6.39891 19.2 6.04105 19.2 5.60001V4.40001C19.2 3.73728 18.6627 3.20001 18 3.20001H16.8ZM10.4 8.00001C7.74899 8.00001 5.59995 10.1491 5.59995 12.8C5.59995 14.0294 6.06211 15.1508 6.82217 16H6.39995C5.5163 16 4.79995 16.7163 4.79995 17.6C4.79995 18.4837 5.5163 19.2 6.39995 19.2H7.23051C6.63733 22.0768 5.0679 23.7373 4.19294 24.4691C3.63781 24.9335 3.19995 25.6464 3.19995 26.4781C3.19995 27.7605 4.2395 28.8 5.52187 28.8H15.278C16.5604 28.8 17.6 27.7605 17.6 26.4781C17.6 25.6464 17.162 24.9335 16.607 24.4691C15.732 23.7373 14.1626 22.0768 13.5694 19.2H14.4C15.2836 19.2 16 18.4837 16 17.6C16 16.7163 15.2836 16 14.4 16H13.9777C14.7378 15.1508 15.2 14.0294 15.2 12.8C15.2 10.1491 13.0509 8.00001 10.4 8.00001Z"
+        />
+      </symbol>
+      <symbol
+        id="star"
+        width="32"
+        height="32"
+        viewBox="0 0 32 32"
+        fill="currentColor"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M17.6146 4.1362C16.9543 2.79834 15.0466 2.79836 14.3863 4.1362L11.2424 10.5065L4.21232 11.528C2.73592 11.7425 2.14641 13.5569 3.21473 14.5983L8.30172 19.5568L7.10084 26.5585C6.84865 28.0289 8.39202 29.1503 9.71256 28.456L16.0004 25.1503L22.2883 28.456C23.6088 29.1503 25.1522 28.0289 24.8999 26.5585L23.6991 19.5568L28.786 14.5983C29.8544 13.5569 29.2648 11.7425 27.7884 11.528L20.7584 10.5065L17.6146 4.1362ZM1.55242 5.04136C1.20741 5.47261 1.27733 6.1019 1.7086 6.44692L5.04193 9.11358C5.47318 9.4586 6.10248 9.38868 6.44749 8.95741C6.7925 8.52614 6.72258 7.89686 6.29132 7.55185L2.95798 4.88518C2.52672 4.54017 1.89742 4.61009 1.55242 5.04136ZM30.4475 24.2908C30.7926 23.8595 30.7226 23.2301 30.2914 22.8852L26.958 20.2185C26.5267 19.8735 25.8975 19.9435 25.5524 20.3747C25.2074 20.806 25.2774 21.4352 25.7086 21.7803L29.0419 24.4469C29.4732 24.7919 30.1024 24.722 30.4475 24.2908ZM1.7086 22.8852C1.27733 23.2301 1.20741 23.8595 1.55242 24.2908C1.89742 24.722 2.52672 24.7919 2.95798 24.4469L6.29132 21.7803C6.72258 21.4352 6.7925 20.806 6.44749 20.3747C6.10248 19.9435 5.47318 19.8735 5.04193 20.2185L1.7086 22.8852ZM30.4475 5.04136C30.7926 5.47261 30.7226 6.1019 30.2914 6.44692L26.958 9.11358C26.5267 9.4586 25.8975 9.38868 25.5524 8.95741C25.2074 8.52614 25.2774 7.89686 25.7086 7.55185L29.0419 4.88518C29.4732 4.54017 30.1024 4.61009 30.4475 5.04136Z"
+        />
+      </symbol>
+      <symbol
+        id="phone"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="currentColor"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M7.444 12.906L7.899 13.359C7.899 13.359 8.982 14.435 11.937 11.497C14.892 8.55898 13.809 7.48298 13.809 7.48298L13.523 7.19698C12.816 6.49498 12.749 5.36698 13.366 4.54298L14.626 2.85998C15.39 1.83998 16.865 1.70498 17.74 2.57498L19.31 4.13498C19.743 4.56698 20.033 5.12498 19.998 5.74498C19.908 7.33198 19.19 10.745 15.186 14.727C10.939 18.949 6.954 19.117 5.325 18.965C4.809 18.917 4.361 18.655 4 18.295L2.58 16.883C1.62 15.93 1.89 14.295 3.118 13.628L5.028 12.589C5.834 12.151 6.814 12.28 7.444 12.906Z"
+        />
+      </symbol>
+      <symbol
+        id="location"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="currentColor"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M12 11C12.8284 11 13.5 10.3284 13.5 9.5C13.5 8.67157 12.8284 8 12 8C11.1716 8 10.5 8.67157 10.5 9.5C10.5 10.3284 11.1716 11 12 11Z"
+        />
+        <path
+          d="M12 2C9.89206 1.99989 7.86926 2.83176 6.37124 4.31479C4.87323 5.79782 4.02108 7.81216 4 9.92C4 15.4 11.05 21.5 11.35 21.76C11.5311 21.9149 11.7616 22.0001 12 22.0001C12.2384 22.0001 12.4689 21.9149 12.65 21.76C13 21.5 20 15.4 20 9.92C19.9789 7.81216 19.1268 5.79782 17.6288 4.31479C16.1307 2.83176 14.1079 1.99989 12 2ZM12 13C11.3078 13 10.6311 12.7947 10.0555 12.4101C9.47993 12.0256 9.03133 11.4789 8.76642 10.8394C8.50151 10.1999 8.4322 9.49612 8.56725 8.81718C8.7023 8.13825 9.03564 7.51461 9.52513 7.02513C10.0146 6.53564 10.6382 6.2023 11.3172 6.06725C11.9961 5.9322 12.6999 6.00151 13.3394 6.26642C13.9789 6.53133 14.5256 6.97993 14.9101 7.5555C15.2947 8.13108 15.5 8.80777 15.5 9.5C15.5 10.4283 15.1313 11.3185 14.4749 11.9749C13.8185 12.6313 12.9283 13 12 13Z"
+        />
+      </symbol>
+      <symbol
+        id="instagram"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="currentColor"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M13.028 2.00099C13.7577 1.99819 14.4874 2.00552 15.217 2.02299L15.411 2.02999C15.635 2.03799 15.856 2.04799 16.123 2.05999C17.187 2.10999 17.913 2.27799 18.55 2.52499C19.21 2.77899 19.766 3.12299 20.322 3.67899C20.8303 4.17859 21.2238 4.78293 21.475 5.44999C21.722 6.08699 21.89 6.81399 21.94 7.87799C21.952 8.14399 21.962 8.36599 21.97 8.58999L21.976 8.78399C21.9937 9.51318 22.0014 10.2426 21.999 10.972L22 11.718V13.028C22.0024 13.7577 21.9948 14.4875 21.977 15.217L21.971 15.411C21.963 15.635 21.953 15.856 21.941 16.123C21.891 17.187 21.721 17.913 21.475 18.55C21.2246 19.2177 20.8311 19.8226 20.322 20.322C19.8219 20.8303 19.2173 21.2237 18.55 21.475C17.913 21.722 17.187 21.89 16.123 21.94C15.856 21.952 15.635 21.962 15.411 21.97L15.217 21.976C14.4874 21.9938 13.7577 22.0014 13.028 21.999L12.282 22H10.973C10.2432 22.0025 9.51349 21.9948 8.78397 21.977L8.58997 21.971C8.35258 21.9624 8.11524 21.9524 7.87797 21.941C6.81397 21.891 6.08797 21.721 5.44997 21.475C4.78265 21.2243 4.1782 20.8308 3.67897 20.322C3.17001 19.8223 2.77619 19.2175 2.52497 18.55C2.27797 17.913 2.10997 17.187 2.05997 16.123C2.04883 15.8857 2.03883 15.6484 2.02997 15.411L2.02497 15.217C2.00653 14.4875 1.9982 13.7577 1.99997 13.028V10.972C1.99718 10.2426 2.00451 9.51318 2.02197 8.78399L2.02897 8.58999C2.03697 8.36599 2.04697 8.14399 2.05897 7.87799C2.10897 6.81299 2.27697 6.08799 2.52397 5.44999C2.77534 4.78261 3.16993 4.17843 3.67997 3.67999C4.17886 3.17074 4.78293 2.77656 5.44997 2.52499C6.08797 2.27799 6.81297 2.10999 7.87797 2.05999L8.58997 2.02999L8.78397 2.02499C9.51315 2.00656 10.2426 1.99823 10.972 1.99999L13.028 2.00099ZM12 7.00099C11.3375 6.99162 10.6797 7.11401 10.0649 7.36105C9.45016 7.6081 8.89061 7.97486 8.41881 8.44004C7.94701 8.90522 7.57237 9.45952 7.31665 10.0707C7.06094 10.682 6.92926 11.3379 6.92926 12.0005C6.92926 12.663 7.06094 13.319 7.31665 13.9302C7.57237 14.5414 7.94701 15.0958 8.41881 15.5609C8.89061 16.0261 9.45016 16.3929 10.0649 16.6399C10.6797 16.887 11.3375 17.0094 12 17C13.326 17 14.5978 16.4732 15.5355 15.5355C16.4732 14.5978 17 13.3261 17 12C17 10.6739 16.4732 9.40213 15.5355 8.46445C14.5978 7.52677 13.326 7.00099 12 7.00099ZM12 9.00099C12.3985 8.99364 12.7944 9.06578 13.1648 9.21319C13.5351 9.3606 13.8723 9.58033 14.1567 9.85953C14.4412 10.1387 14.6671 10.4718 14.8214 10.8393C14.9757 11.2068 15.0552 11.6014 15.0552 12C15.0553 12.3986 14.9759 12.7931 14.8218 13.1607C14.6677 13.5283 14.4418 13.8614 14.1575 14.1407C13.8731 14.42 13.536 14.6399 13.1657 14.7874C12.7954 14.9349 12.3995 15.0072 12.001 15C11.2053 15 10.4423 14.6839 9.87965 14.1213C9.31704 13.5587 9.00097 12.7956 9.00097 12C9.00097 11.2043 9.31704 10.4413 9.87965 9.87867C10.4423 9.31606 11.2053 8.99999 12.001 8.99999L12 9.00099ZM17.25 5.50099C16.9274 5.5139 16.6223 5.65114 16.3986 5.88396C16.1749 6.11678 16.05 6.42712 16.05 6.74999C16.05 7.07285 16.1749 7.38319 16.3986 7.61601C16.6223 7.84884 16.9274 7.98607 17.25 7.99899C17.5815 7.99899 17.8994 7.86729 18.1339 7.63287C18.3683 7.39845 18.5 7.08051 18.5 6.74899C18.5 6.41747 18.3683 6.09952 18.1339 5.8651C17.8994 5.63068 17.5815 5.49899 17.25 5.49899V5.50099Z"
+        />
+      </symbol>
+    </svg>
+
+    <header class="relative bg-sky-200 md:bg-white">
+      <img
+        class="invisible md:visible w-full aspect-square md:aspect-12/10 lg:aspect-auto"
+        src="./assets/images/Subtract.png"
+        alt=""
+      />
+      <div class="absolute inset-0">
+        <nav
+          class="hidden md:flex items-center justify-between px-12 lg:px-16 text-black-0 mt-6"
+        >
+          <span class="font-bold text-xl">مهد کودک ما</span>
+          <div class="flex items-center gap-x-10 lg:gap-x-16 text-sm font-bold">
+            <a href="#">خانه</a>
+            <a href="#">مقالات</a>
+            <a href="#">درباره ما</a>
+            <a href="#">خدمات ما</a>
+            <a href="#">تماس با ما</a>
+          </div>
+          <svg class="w-5 h-5">
+            <use href="#search"></use>
+          </svg>
+        </nav>
+        <!-- mobile header -->
+        <div class="flex justify-between px-4 py-3 md:hidden">
+          <div class="">
+            <svg id="menu-toggle" class="w-6 h-6">
+              <use href="#bars"></use>
+            </svg>
+            <!-- mobile header links -->
+            <div
+              id="mobile-menu"
+              class="fixed absolute hidden flex flex-col right-0 top-0 transition-all min-h-screen w-60 bottom-0 bg-sky-100"
+            >
+              <div>
+                <img src="./assets/images/logo.png" alt="" />
+              </div>
+              <div class="flex flex-col gap-y-10 text-sm font-bold mt-4 mr-5">
+                <a href="#">خانه</a>
+                <a href="#">مقالات</a>
+                <a href="#">درباره ما</a>
+                <a href="#">خدمات ما</a>
+                <a href="#">تماس با ما</a>
+              </div>
+
+              <!-- login  -->
+              <div class="flex justify-between items-end mt-auto mb-8 px-2">
+                <div>
+                  <a
+                    class="inline-flex justify-center items-center bg-greenc2 text-white rounded-[64PX] text-sm font-bold w-[107PX] h-[38PX] mt-6 lg:mt-8"
+                    href="#"
+                    >ورود</a
+                  >
+                </div>
+                <div>
+                  <a
+                    class="inline-flex justify-center items-center bg-greenc2 text-white rounded-[64PX] text-sm font-bold w-[107PX] h-[38PX] mt-6 lg:mt-8"
+                    href="#"
+                    >ثبت نام</a
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+          <div>
+            <svg class="w-6 h-6">
+              <use href="#search"></use>
+            </svg>
+          </div>
+        </div>
+
+        <div
+          class="flex md:gap-0 flex-col-reverse md:flex-row flex-wrap md:flex-nowrap justify-between xl:items-center xl:justify-evenly px-12 lg:px-16 mt-10 lg:mt-14"
+        >
+          <div
+            class="hidden md:flex flex-col basis-1/2 lg:basis-auto gap-y-5 md:gap-y-0"
+          >
+            <h1 class="font-bold text-2xl md:text-4xl leading-normal">
+              ثبت نام پیش‌دبستانی سال تحصیلی ۱۴۰۴-۱۴۰۵
+            </h1>
+            <p class="inline-block font-medium text-sm max-w-[457PX] mt-4">
+              پیش دبستانی و مهد کودک ما با بهره‌مندی از امکانات و شیوه‌های روز
+              دنیا در تهران آماده خدمت رسانی به فرزندان ایران زمین است.
+            </p>
+            <a
+              class="inline-flex justify-center items-center bg-greenc2 text-white rounded-[64PX] text-sm font-bold w-[107PX] h-[38PX] mt-6 lg:mt-8"
+              href="#"
+              >ثبت نام</a
+            >
+          </div>
+
+          <div class="md:basis-1/2 lg:basis-auto md:mb-0">
+            <img
+              class=""
+              src="./assets/images/flying-kids.png"
+              alt="flying-kids"
+            />
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- maine -->
+    <main>
+      <section class="flex md:hidden justify-center px-6 mt-3.5">
+        <div class="flex flex-col gap-y-5">
+          <h1 class="font-bold text-2xl md:text-4xl leading-normal">
+            ثبت نام پیش‌دبستانی سال تحصیلی ۱۴۰۵-۱۴۰۴
+          </h1>
+          <p class="inline-block font-medium text-sm max-w-[457PX] mt-4">
+            پیش دبستانی و مهد کودک ما با بهره‌مندی از امکانات و شیوه‌های روز
+            دنیا در تهران آماده خدمت رسانی به فرزندان ایران زمین است.
+          </p>
+          <a
+            class="inline-flex justify-center items-center bg-greenc2 text-white rounded-[64PX] text-sm font-bold w-[107PX] h-[38PX] mt-6 lg:mt-8"
+            href="#"
+            >ثبت نام</a
+          >
+        </div>
+      </section>
+
+      <section class="works mt-13">
+        <div class="container">
+          <div class="flex flex-col gap-y-3 justify-center items-center">
+            <p class="font-bold text-gray0 text-base">برای پیشرفت دلبند شما</p>
+            <h3 class="text-3xl text-black-0">چه برنامه‌هایی رو داریم</h3>
+          </div>
+          <!-- work container -->
+          <div
+            class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 justify-items-center gap-4 mt-6"
+          >
+            <!-- work -->
+            <div class="work border border-gray0">
+              <div class="w-11 h-11 bg-orangec2 rounded-full mt-6">
+                <svg class="w-[46PX] h-11 text-white">
+                  <use href="#abc"></use>
+                </svg>
+              </div>
+
+              <div class="flex flex-col items-center justify-center">
+                <h4 class="font-bold text-base">آموزش زبان انگلیسی</h4>
+                <p class="px-8 mt-2 font-medium text-sm text-gray0">
+                  کودکان می توانند زبان دوم را در مهد کودک ما با شیوه‌های صحیص
+                  به راحتی زبان مادری یاد بگیرند.
+                </p>
+              </div>
+            </div>
+            <div class="work border border-gray0">
+              <div
+                class="flex items-center justify-center w-11 h-11 bg-redc4 rounded-full mt-6"
+              >
+                <svg class="w-8 h-8 text-white">
+                  <use href="#ballon"></use>
+                </svg>
+              </div>
+
+              <div class="flex flex-col items-center justify-center">
+                <h4 class="font-bold text-base">بازی و سرگرمی</h4>
+                <p class="px-8 mt-2 font-medium text-sm text-gray0">
+                  هر چه امکان پرداختن به بازیهای سالم و سازنده بیشتر باشد، فکر و
+                  ذهن و جسم بهتر پرورش می یابد.
+                </p>
+              </div>
+            </div>
+            <div class="work border border-gray0 bg-greenc2">
+              <div
+                class="flex justify-center items-center w-11 h-11 bg-white rounded-full mt-6"
+              >
+                <svg class="w-8 h-8 text-greenc2">
+                  <use href="#star"></use>
+                </svg>
+              </div>
+
+              <div class="flex flex-col items-center justify-center">
+                <h4 class="font-bold text-base text-white">
+                  آموزش و استعداد یابی
+                </h4>
+                <p class="px-8 mt-2 font-medium text-sm text-white">
+                  کودک زیر ۷ سال را نباید به طور مستقیم آموزش داد و باید از
+                  روش‌های تخصصی کمک بگیریم.
+                </p>
+              </div>
+            </div>
+            <div class="work border border-gray0">
+              <div
+                class="flex items-center justify-center w-11 h-11 bg-purplec3 rounded-full mt-6"
+              >
+                <svg class="w-8 h-8 text-white">
+                  <use href="#chess"></use>
+                </svg>
+              </div>
+
+              <div class="flex flex-col items-center justify-center">
+                <h4 class="font-bold text-base">کلاس شطرنج</h4>
+                <p class="px-8 mt-2 font-medium text-sm text-gray0">
+                  آموزش شطرنج باعث افزایش تمرکز و دقت در کودکان میشود. کودک یاد
+                  میگیرد هرکاری را اول ارزیابی کند.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="container">
+        <section
+          class="Kindergarten-principles flex flex-col md:flex-row items-center pl-4 mt-36"
+        >
+          <div class="basis-1/2 flex justify-center md:justify-start">
+            <img src="./assets/images/kids.png" alt="kids" />
+          </div>
+
+          <div class="basis-1/2">
+            <div>
+              <p class="text-gray0 text-base font-bold mb-3">
+                برای مدیریت عالی
+              </p>
+              <h3 class="font-bold text-3xl">اصول کاری مهد کودک چیست؟</h3>
+            </div>
+            <div class="mt-6 md:mt-4">
+              <p class="text-gray0 text-sm font-bold mb-4">
+                اهمیت امر آموزش اولین آموزش‌ها در خانواده و در محیطی آرام شکل
+                می‌گیرد. مانند آموزش خوب زندگی کردن، خوب حرف زدن و در کل آموزش
+                چگونه درست اندیشیدن را باید از‌‌ همان روزهای نخست کودکی در نهاد
+                کودک جای دهیم.
+              </p>
+
+              <ul class="space-y-2 text-sm font-medium">
+                <li class="flex items-center gap-2">
+                  <span class="green-circle"></span>
+                  <span>آموزش و استعداد یابی</span>
+                </li>
+
+                <li class="flex items-center gap-2">
+                  <span class="green-circle"></span>
+                  <span>پرورش خلاقیت</span>
+                </li>
+
+                <li class="flex items-center gap-2">
+                  <span class="green-circle"></span>
+                  <span>تغذیه و بهداشت</span>
+                </li>
+
+                <li class="flex items-center gap-2">
+                  <span class="green-circle"></span>
+                  <span>بازی و سرگرمی</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <div class="container">
+          <section class="gallery mt-16">
+            <div class="text-center mb-8">
+              <h4 class="text-3xl font-bold">گالری تصاویر</h4>
+            </div>
+
+            <!-- tabs-->
+            <div
+              class="flex justify-center gap-6 text-sm font-medium child-hover:cursor-pointer"
+            >
+              <button
+                class="gallery-tab text-green-600 border-b-2 border-green-600 pb-1"
+                data-target="yard"
+              >
+                حیاط
+              </button>
+
+              <button
+                class="gallery-tab text-gray-500 pb-1"
+                data-target="classroom"
+              >
+                کلاس‌ها
+              </button>
+
+              <button
+                class="gallery-tab text-gray-500 pb-1"
+                data-target="dining"
+              >
+                غذاخوری
+              </button>
+
+              <button
+                class="gallery-tab text-gray-500 pb-1"
+                data-target="playroom"
+              >
+                اتاق بازی
+              </button>
+            </div>
+
+            <!-- gallerys-->
+            <div class="mt-8">
+              <div
+                class="gallery-panel grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4"
+                data-panel="yard"
+              >
+                <img
+                  src="./assets/images/p1.jpg"
+                  class="w-full h-48 object-cover rounded-xl"
+                  alt=""
+                />
+                <img
+                  src="./assets/images/p2.jpg"
+                  class="w-full h-48 object-cover rounded-xl"
+                  alt=""
+                />
+                <img
+                  src="./assets/images/p3.jpg"
+                  class="w-full h-48 object-cover rounded-xl"
+                  alt=""
+                />
+              </div>
+
+              <div
+                class="gallery-panel hidden grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4"
+                data-panel="classroom"
+              >
+                <img
+                  src="./assets/images/p4.jpg"
+                  class="w-full h-48 object-cover rounded-xl"
+                  alt=""
+                />
+                <img
+                  src="./assets/images/p5.jpg"
+                  class="w-full h-48 object-cover rounded-xl"
+                  alt=""
+                />
+                <img
+                  src="./assets/images/p6.png"
+                  class="w-full h-48 object-cover rounded-xl"
+                  alt=""
+                />
+              </div>
+
+              <div
+                class="gallery-panel hidden grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4"
+                data-panel="dining"
+              >
+                <img
+                  src="./assets/images/p4.jpg"
+                  class="w-full h-48 object-cover rounded-xl"
+                  alt=""
+                />
+                <img
+                  src="./assets/images/p2.jpg"
+                  class="w-full h-48 object-cover rounded-xl"
+                  alt=""
+                />
+              </div>
+
+              <div
+                class="gallery-panel hidden grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4"
+                data-panel="playroom"
+              >
+                <img
+                  src="./assets/images/p2.jpg"
+                  class="w-full h-48 object-cover rounded-xl"
+                  alt=""
+                />
+                <img
+                  src="./assets/images/p6.png"
+                  class="w-full h-48 object-cover rounded-xl"
+                  alt=""
+                />
+                <img
+                  src="./assets/images/p3.jpg"
+                  class="w-full h-48 object-cover rounded-xl"
+                  alt=""
+                />
+              </div>
+            </div>
+          </section>
+        </div>
+
+        <div class="container">
+          <section class="article pb-4 mt-56">
+            <div class="text-center">
+              <p class="text-gray0 text-base">آخرین نوشته‌ها</p>
+              <h4 class="font-bold text-black-0 text-3xl">
+                مطالب خواندنی وبلاگ
+              </h4>
+            </div>
+
+            <div
+              class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 justify-items-center gap-6 mt-6"
+            >
+              <article>
+                <div class="flex flex-col">
+                  <div>
+                    <img src="./assets/images/shy-girl.png" alt="shy-girl" />
+                  </div>
+
+                  <div class="mb-4 pr-2.5">
+                    <h2 class="font-bold text-xl text-black-0 mt-4">
+                      احساس خجالت در کودکان
+                    </h2>
+                    <p
+                      class="max-w-[370PX] font-medium text-sm text-gray0 mt-2.5"
+                    >
+                      خجالت در کودکان، احساسی است که با واکنش‌های فیزیکی مانند
+                      چهره‌ی قرمز و خم شدن سر، همراه می‌شود. این احساس ممکن است
+                      به دلیل ترس از تحلیل دیگران یا نگرانی از عملکرد در ...
+                    </p>
+                  </div>
+                </div>
+                <a class="underline underline-offset-8 pr-2.5" href="#"
+                  >مطالعه مطلب ></a
+                >
+              </article>
+
+              <article>
+                <div>
+                  <div>
+                    <img
+                      src="./assets/images/funny-girl.jpg"
+                      alt="funny-girl"
+                    />
+                  </div>
+
+                  <div class="mb-4 pr-2.5">
+                    <h2 class="font-bold text-xl text-black-0 mt-4">
+                      رفتار جلب توجه در کودکان
+                    </h2>
+                    <p
+                      class="max-w-[370PX] font-medium text-sm text-gray0 mt-2.5"
+                    >
+                      توجه یک نیاز اساسی انسان است که از دلبستگی ناشی می شود.
+                      بنابراین، بچه هایی که به دنبال جلب توجه هستند، به ویژه از
+                      سوی والدینش. به دلیل فرهنگ ...
+                    </p>
+                  </div>
+                </div>
+                <a class="underline underline-offset-8 pr-2.5" href="#"
+                  >مطالعه مطلب ></a
+                >
+              </article>
+
+              <article>
+                <div class="flex flex-col">
+                  <div>
+                    <img
+                      src="./assets/images/limon-girl.png"
+                      alt="limon-girl"
+                    />
+                  </div>
+
+                  <div class="mb-4 pr-2.5">
+                    <h2 class="font-bold text-xl text-black-0 mt-4">
+                      خواص پرتقال و لیمو برای کودکان
+                    </h2>
+                    <p
+                      class="max-w-[370PX] font-medium text-sm text-gray0 mt-2.5"
+                    >
+                      پرتقال و لیمو، علاوه بر ویتامین C، فیبر غذایی دارند که هضم
+                      بهتر و تنظیم قند خون را تسهیل می‌کند. همچنین،
+                      آنتی‌اکسیدان‌های موجود در آن‌ها به سلامت قلب و پایین آوردن
+                      التهاب‌ها کمک ...
+                    </p>
+                  </div>
+                </div>
+                <a class="underline underline-offset-8 pr-2.5" href="#"
+                  >مطالعه مطلب ></a
+                >
+              </article>
+            </div>
+          </section>
+        </div>
+      </div>
+
+      <img
+        class="w-full mt-20 md:mt-52"
+        src="./assets/images/footerimage.png"
+        alt=""
+      />
+    </main>
+
+    <footer
+      class="flex flex-col md:flex-row items-center justify-evenly -mt-1 md:h-[350PX] px-6 py-10 bg-greenc2"
+    >
+      <div class="text-white">
+        <span class="font-bold text-base">درباره مهد ما</span>
+        <p class="font-medium text-sm mt-6 max-w-[362PX]">
+          مهد کودک ما یک محیط آموزشی پویا و مهربان برای کودکان فراهم می‌کند. ما
+          با تیمی متخصص و مهربان به ارتقاء توانایی‌های اجتماعی، انگیزشی و تحصیلی
+          کودکان می‌پردازیم. هچنین بازی‌های آموزشی، هنر و تفریحات سازنده را به
+          کودکان ارائه می‌دهیم.
+        </p>
+      </div>
+
+      <div class="flex flex-col">
+        <p class="text-white mb-4">تماس با ما</p>
+
+        <div class="text-white space-y-6">
+          <p class="flex gap-x-4 items-center">
+            <svg class="w-6 h-6">
+              <use href="#instagram"></use>
+            </svg>
+            @Kindergarten
+          </p>
+
+          <p class="flex gap-x-4 items-center">
+            <svg class="w-6 h-6">
+              <use href="#phone"></use>
+            </svg>
+            02122000000 - 09128888888
+          </p>
+
+          <p class="flex gap-x-4 items-center">
+            <svg class="w-6 h-6">
+              <use href="#location"></use>
+            </svg>
+            تهران، دروس، خیابان رشت، کوچه گل‌بو، پلاک 16
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <script src="./assets/scripts/app.js"></script>
+  </body>
+</html>
